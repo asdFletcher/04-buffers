@@ -1,67 +1,70 @@
-![CF](http://i.imgur.com/7v5ASc8.png) LAB: Buffers
+![CF](http://i.imgur.com/7v5ASc8.png) LAB 03: Buffers
 =================================================
 
-## Lab 03 - Buffers
 
 ### Author: Fletcher LaRue
+* worked with George and Michael
 
 ### Links and Resources
 
-[![Build Status](https://www.travis-ci.com/asdFletcher/03-async.svg?branch=master)](https://www.travis-ci.com/asdFletcher/03-async)
+[![Build Status](https://www.travis-ci.com/asdFletcher/04-buffers.svg?branch=master)](https://www.travis-ci.com/asdFletcher/04-buffers)
 
-* [repo](https://github.com/asdFletcher/03-async)
-* [travis](https://www.travis-ci.com/asdFletcher/03-async)
+* [repo](https://github.com/asdFletcher/04-buffers)
+* [travis](https://www.travis-ci.com/asdFletcher/04-buffers)
 
 --- 
 
 ---
 Description:
-This project involves using 3 different types of asyncronous JavaScript functionalities to read data from local files. All the modules perform similar tasks (reading local files), but each has different functionality, implementation and tests.
+This project involves reading and writing data to and from files using buffers. In the first exercise data is written in string form, converted to a buffer and written to a file using Node.js file system 'fs'. The second exercise takes data from a given text file, parses it and makes changes it (in this case, adding various HTML tags), and then writes it back to the same file.
 
 ---
-### Modules
-#### `reader-fixed.js`
-#### `reader-callbacks-array.js`
-#### `reader.js` (Deprecated, do not use, does not work)
+### Files
+#### `index.js`
+#### `articler.js`
 ---
-##### Exported Values and Methods for the following modules:
+##### Exported Values and Methods for the following files:
 
-#### `reader-fixed.js`
-#### `reader-callbacks-array.js`
+There are no explicitly exported modules, but the functionality can be used or changed by running the two JavaScript files:
 
-* Methods:
-    * `anonymous function definition`
-* Attributes:
-    * none
-
+#### `index.js`
+* none
+#### `articler.js`
+* none
 ---
 
 
-##### Using the following modules:
+##### Using the following files:
 The modules:
 
-- #### `reader-fixed.js`
-- #### `reader-callbacks-array.js`
-
-export an anonymous function that reads local files.
-
-This function behaves as follows:
-* `(files, callback) => ... `
-    * Takes an array of file paths to be read, and a callback function that executes when the files are read.
-    * Returns an array of the contents of each file, in the order that it was specified in the `files` array.
-    * Implemented using `fs.readFile`
-    * Calls to read files are sent synchronously to preserve output array order
 
 
+
+Since there are no exported modules, these files can only be used directly. For example via `node <file name>` in the terminal.
+
+- #### `index.js` behavior is as follows:
+
+* Generates some content as a string
+* allocate a buffer (default `utf-8`)
+* convert the content to a buffer via `.charCodeAt()`
+* write the file using `.writeFile`
+
+- #### `articler.js` behavior is as follows:
+
+* Read file from a specified path (hard coded)
+* call `.readFile` using Node.js's `fs`
+* convert the content to a buffer via `.charCodeAt()`
+* alter the data `alterData()`
+* write the file using `.writeFile`
+* File is over-written by any changes
 
 ---
 
 ### Testing
 
 Test files for each module are located in the repository as follows:
-* `reader-callbacks-array.js`: `__tests__/lib/reader-callbacks-array.test.js`
-* `reader-fixed.js`: `__tests__/lib/reader.test.js`
 
+// TODO: Create test files
 
 To perform testing using jest, run the following command in the terminal from the root of a local copy of the repository:
 ```JavaScript
@@ -86,43 +89,22 @@ To create a `package.json` file run:
 npm init
 ```
 
-
-
 ---
 
 ### Dependencies
 
-* TODO: list project setup instructions
+* jest: `npm i jest`
+* Node.js included filesystem: `require('fs')`
 
 
-
-
-### Modules
-#### `modulename.js`
-##### Exported Values and Methods
-
-###### `foo(thing) -> string`
-Usage Notes or examples
-
-###### `bar(array) -> array`
-Usage Notes or examples
 
 ### Setup
 #### `.env` requirements
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
+* n/a
 
-#### Running the app
-* `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
 
 #### Tests
+TODO: Fill in the following
 * How do you run tests?
 * What assertions were made?
 * What assertions need to be / should be made?
-
-#### UML
-Link to an image of the UML for your application and response to events
