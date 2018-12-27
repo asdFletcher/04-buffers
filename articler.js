@@ -15,7 +15,7 @@ fs.readFile(path, function callback(err, data) {
 
   let newData = alterData(data);
   
-  fs.writeFile(path, newData, (err,data)=>{
+  fs.writeFile(path, data, (err,data)=>{
     if(err) {throw Error(err); }
     console.log('successfully wrote to file');
   });
@@ -62,7 +62,7 @@ function alterData(data){
 
     data.copy(buffCopy,0,start,start+length);
     buffs[start+length/2] = buffCopy;
-
+    console.log('buffCopy: ', buffCopy.toString());
     console.log(`start: ${start} length ${length}`);
 
   }
