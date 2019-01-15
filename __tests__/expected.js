@@ -1,4 +1,6 @@
-<article><h2>6 Reasons for Pair Programming</h2>
+'use strict';
+
+let expected = `<article><h2>6 Reasons for Pair Programming</h2>
 <li>Iterative loops.</li><li>Code reviews.</li><li>Fast feedback.</li><li>Error checking and linting.</li><li>These are software engineering practices that have proven to dramatically improve the quality of code developers produce.</li><li>What if you can could get all of this, instantaneously, while typing code line by line and character by character? You can, with pair programming, a technique common to many agile work environments.</li>
 
 <li>More "two heads are better than one" than "stop reading over my shoulder," pair programming is the practice of two developers sharing a single workstation to interactively tackle a coding task together.</li><li>At Code Fellows, pair programing is one way we foster a collaborative environment while developing key industry skills.</li>
@@ -39,4 +41,6 @@
 <li>For most roles, the ability to work with and learn from others and stellar communication skills are as (or more!) important to a company than specific technical skills.</li><li>Pair programming strengthens all of those skills.</li>
 
 <h3>6. Work environment readiness</h3>
-<li>Many companies that utilize pair programing expect to train fresh hires from CS-degree programs on how they operate to actually deliver a product.</li><li>Code Fellows graduates who are already familiar with how pairing works can hit the ground running at a new job, with one less hurdle to overcome.</li></aritcle>
+<li>Many companies that utilize pair programing expect to train fresh hires from CS-degree programs on how they operate to actually deliver a product.</li><li>Code Fellows graduates who are already familiar with how pairing works can hit the ground running at a new job, with one less hurdle to overcome.</li></aritcle>`;
+
+module.exports = expected;
