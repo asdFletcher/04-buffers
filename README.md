@@ -16,12 +16,24 @@
 
 ---
 Description:
-This project involves reading and writing data to and from files using buffers. In the first exercise data is written in string form, converted to a buffer and written to a file using Node.js file system 'fs'. The second exercise takes data from a given text file, parses it and makes changes it (in this case, adding various HTML tags), and then writes it back to the same file.
+This project involves reading and writing data to and from files using buffers. In the first exercise data is written in string form, converted to a buffer and written to a file using Node.js file system `fs`. The second exercise takes data from a given text file, parses it and makes changes it (in this case, adding various HTML tags), and then writes it back to the same file.
 
 ---
 ### Files
 #### `index.js`
 #### `articler.js`
+#### `articler-modules.js`
+
+### Testing Files
+#### Located in the `__tests__` folder:
+- #### `articler.test.js`
+- #### `expected.js`
+- #### `test-text.js`
+
+### Sample data files
+#### Located in the `files` folder:
+- #### `pair-programming.html`
+- #### `backup.txt`
 ---
 ##### Exported Values and Methods for the following files:
 
@@ -31,16 +43,39 @@ There are no explicitly exported modules, but the functionality can be used or c
 * none
 #### `articler.js`
 * none
+#### `articler.js`
+* splitIntoNestedArray(<buffer>)
+  * takes 1 param, a buffer
+  * returns a nested array of strings
+  * splits first on single line break
+  * then double line break
+* handleHeader(<string>)
+  * accepts a single parameter, a string
+  * returns a correctly tagged header
+  * <h2> if there is no numbering on the header
+  * <h3> if there is numbering on the header
+* handleParagraph(<string>)
+ * takes a single parameter, a string
+ * wraps the sentences (based on periods) in <li> and </li> tags
+ * returns the modified string
+* recombineNestedArrays(<nested array>)
+  * takes 1 param, a nested array
+  * returns the arrays joined:
+    * inner array is joined on single line breaks
+    * outer array is joined on double line breaks
+  * this reverses the `splitIntoNestedArray` function
+* alterData(<buffer>)
+  * accepts a buffer
+  * returns a buffer
+  * calls the other functions
+  * wraps the entire string in <article> tags
+
 ---
 
 
 ##### Using the following files:
-The modules:
 
-
-
-
-Since there are no exported modules, these files can only be used directly. For example via `node <file name>` in the terminal.
+To run a file, use `node <file name>` in the terminal.
 
 - #### `index.js` behavior is as follows:
 
@@ -97,14 +132,3 @@ npm init
 * Node.js included filesystem: `require('fs')`
 
 
-
-### Setup
-#### `.env` requirements
-* n/a
-
-
-#### Tests
-TODO: Fill in the following
-* How do you run tests?
-* What assertions were made?
-* What assertions need to be / should be made?
